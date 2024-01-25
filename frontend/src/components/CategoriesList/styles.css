@@ -1,0 +1,14 @@
+.add-item {
+  cursor: pointer;
+}
+
+.categories-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories-list li {
+  margin-right: 10px;
+}

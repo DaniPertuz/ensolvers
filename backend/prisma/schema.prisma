@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model category {
+  id                             Int     @id @default(autoincrement())
+  name                           String  @db.VarChar
+  notes_notes_categoryTocategory notes[] @relation("notes_categoryTocategory")
+}
+
+model notes {
+  id                                Int         @id @default(autoincrement())
+  title                             String      @db.VarChar
+  body                              String      @db.VarChar
+  category                          Int
+  status                            status_enum @default(active)
+  category_notes_categoryTocategory category    @relation("notes_categoryTocategory", fields: [category], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notes_category_fk")
+}
+
+model user_notes {
+  id       Int    @id(map: "user_pkey") @default(autoincrement())
+  email    String @db.VarChar
+  password String @db.VarChar
+  name     String @db.VarChar
+}
+
+enum status_enum {
+  archived
+  active
+}

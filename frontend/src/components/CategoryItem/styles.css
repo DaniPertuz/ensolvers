@@ -1,0 +1,11 @@
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+}
+
+.item-pointer {
+  cursor: pointer;
+}
