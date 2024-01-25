@@ -78,7 +78,7 @@ export const NotesProvider = ({ children }: any) => {
 
   const deleteNote = async (id: number): Promise<void> => {
     try {
-      const { data } = await notesAPI.delete<ICategory>(`/categories${id}`);
+      const { data } = await notesAPI.delete<INote>(`/notes/${id}`);
 
       if (data) {
         dispatch({
